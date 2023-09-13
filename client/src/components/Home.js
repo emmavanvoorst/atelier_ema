@@ -3,19 +3,20 @@ import footer from "../imgs/footer.png";
 
 import Hero from "./Hero";
 import Carousel from "./Carousel";
-import NavBar from "./NavBar";
+
 
 const Container = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 100%;
   background-color: #cc6063;
 `;
 const Text = styled.div`
-  color: yellow;
-  font-size: 15rem;
+  color: #FCFF56;
+  font-size: 10rem;
+  text-align: center;
   font-family: "Lato", sans-serif;
   font-weight: bold;
-  /* margin: 0.5em 0 0.8em 0; */
+  margin: 0.8em 0 0.8em 0;
 `;
 const Flex = styled.div`
   display: flex;
@@ -29,7 +30,7 @@ const FooterImg = styled.img`
 const Home = () => {
   return (
     <Container>
-      <NavBar />
+ 
       <Hero />
       <Text>
         WELCOME TO <br />

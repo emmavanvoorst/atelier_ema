@@ -2,17 +2,18 @@ import { styled } from "styled-components";
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
-display: flex;
-  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  height: 3.5em;
+  width: 100%;
   top: 0.5em;
-  left: 0.5em;
   margin-bottom: 1em;
+  padding-right: 4em;
   background-color: #55b0f1;
-  border-radius: 0.5em;
+  border-radius: 1em;
   border: 4px #e7e996 solid;
   font-family: "Lato", sans-serif;
-  height: 3.5em;
-  width: 100vw;
   font-weight: bold;
 `;
 const Flex = styled.div`
@@ -37,18 +38,17 @@ const BlogNavBar = () => {
   return (
     <Container>
       <Flex>
-        <div>
           <NavLink to="/">
             <NavText>ATELIER EMA</NavText>
           </NavLink>
-        </div>
-
-        <Flex>
-          <NavText>
-            <NavLink to="/blog">MY ATELIER</NavLink>
-          </NavText>
-          <NavLink to="/about"><NavText>ABOUT</NavText></NavLink>
-        </Flex>
+      </Flex>
+      <Flex>
+        <NavText>
+          <NavLink to="/blog">MY ATELIER</NavLink>
+        </NavText>
+        <NavLink to="/about">
+          <NavText>ABOUT</NavText>
+        </NavLink>
       </Flex>
     </Container>
   );

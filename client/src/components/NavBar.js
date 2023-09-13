@@ -7,6 +7,7 @@ z-index: 1;
 display: flex;
 justify-content: space-between;
 position: fixed;
+margin-top: 1em;
 align-items: center;
 width: 100%;
 `
@@ -20,10 +21,10 @@ const Logo = styled.img`
 margin-left: 2em;
 width: 7em;
 cursor: pointer;
-transition: transform 0.3s; /* Add a smooth transition effect */
+transition: transform 0.3s; 
   
   &:hover {
-    animation: ${spinAnimation} 5s linear infinite; /* Apply the spin animation on hover */
+    animation: ${spinAnimation} 5s linear infinite; 
   }
 `;
 const Flex = styled.div`
@@ -31,7 +32,7 @@ display: flex;
 justify-content: space-between;
 `
 const NavText = styled.div`
-color: yellow;
+color: #FCFF56;
 text-align: center;
 font-size: 2rem;
 font-weight: bold;
@@ -42,7 +43,7 @@ width: 6em;
 
 &:hover{
     color: #55B0F1;
-    background-color: yellow;
+    background-color: #FCFF56;
 }
 `
 const NavLink = styled(Link)`

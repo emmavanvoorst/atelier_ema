@@ -11,7 +11,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   padding: 8em 0 8em 0;
 `;
 const Image = styled.img`
@@ -25,8 +25,9 @@ const WaitingImage = styled.img`
 
 const Button = styled.button`
   all: unset;
-  color: yellow;
+  color: #FCFF56;
   cursor: pointer;
+  transition: 200ms;
   &:hover {
     color: #55b0f1;
   }

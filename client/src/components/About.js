@@ -1,5 +1,4 @@
 import { styled } from "styled-components";
-import NavBar from "./NavBar";
 import logo from "../imgs/logo_yellow.png";
 
 const Container = styled.div`
@@ -17,7 +16,7 @@ const Logo = styled.img`
 const About = () => {
   return (
     <Container>
-      <NavBar />
+
       <Logo src={logo} />
     </Container>
   );

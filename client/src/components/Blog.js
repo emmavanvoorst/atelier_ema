@@ -1,20 +1,19 @@
 import { styled, keyframes } from "styled-components";
 import React, { useEffect, useState } from "react";
-import BlogNavBar from "./BlogNavBar";
 import logo from "../imgs/logo_yellow.png";
-import blogimg from "../imgs/blog-img.jpg";
 
 const Wrapper = styled.div`
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
+  padding-top: 3.5em;
   background-color: #e7e996;
 `;
 const Container = styled.div`
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   align-content: center;
-  width: 90vw;
-  margin-bottom: 1em;
+  padding: 1em;
 `;
 const TitleContainer = styled.div`
   display: flex;
@@ -23,7 +22,6 @@ const TitleContainer = styled.div`
   margin-bottom: 1em;
   border-radius: 0.5em;
   height: 15em;
-  width: 100vw;
 `;
 const spinAnimation = keyframes`
   100% {
@@ -36,10 +34,7 @@ const Logo = styled.img`
   margin-left: 1em;
   animation: ${spinAnimation} 10s linear infinite;
 `;
-const Image = styled.img`
-  height: 30em;
-  margin: 2em;
-`;
+
 const Title = styled.div`
   color: #e7e996;
   font-family: "Lato", sans-serif;
@@ -48,61 +43,83 @@ const Title = styled.div`
   padding-left: 0.1em;
 `;
 const Blue = styled.div`
-  width: 100vw;
   height: 2em;
   background-color: #55b0f1;
   left: 1em;
   border-radius: 1em;
 `;
 const BlogPosts = styled.div`
+  display: flex;
+  justify-content: center;
   background-color: #55b0f1;
-  width: 100vw;
   border-radius: 1em;
   margin-top: 1em;
+  flex-wrap: wrap;
+  min-height: 100vh;
+`;
+const OneBlog = styled.div`
+  display: flex;
+
+  width: 40em;
+  margin: 4em 0 4em 4em;
+`;
+const Image = styled.img`
+  height: 30em;
+`;
+const Subtitle = styled.div`
+  color: #e7e996;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  font-size: 3rem;
+`;
+const Text = styled.div`
+  color: #e7e996;
+  font-family: "Lato", sans-serif;
 `;
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
-console.log({blogs})
+  console.log({ blogs });
 
   useEffect(() => {
-  fetch("/api/get-blogposts",{
-  method: "GET",
-    headers: {
-      "Cache-Control": "no-cache",
-    },
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json(); // Parse the response as JSON
+    fetch("/api/get-blogposts", {
+      method: "GET",
+      headers: {
+        "Cache-Control": "no-cache",
+      },
     })
-    .then((blogPosts) => {
-      setBlogs(blogPosts)
-      console.log(blogPosts);
-    })
-    .catch((error) => {
-      // Handle any errors that occurred during the fetch
-      console.error("Fetch error:", error);
-    });
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json(); // Parse the response as JSON
+      })
+      .then((blogPosts) => {
+        setBlogs(blogPosts.blogs);
+        console.log(blogPosts);
+      })
+      .catch((error) => {
+        // Handle any errors that occurred during the fetch
+        console.error("Fetch error:", error);
+      });
   }, []);
-
 
   return (
     <Wrapper>
       <Container>
-        <BlogNavBar />
         <TitleContainer>
           <Title>THE</Title> <Logo src={logo} />
           <Title>ATELIER</Title>
         </TitleContainer>
         <Blue />
         <BlogPosts>
-        {blogs.length > 0 ? (
+          {blogs.length > 0 ? (
             blogs.map((blog, index) => (
               <div key={index}>
-                <div>{blog.title}</div> <div>{blog.text}</div>
+                <OneBlog>
+                  <Image src={`data:image/png;base64, ${blog.image}`} />
+                  <Subtitle>{blog.title}</Subtitle>
+                </OneBlog>
               </div>
             ))
           ) : (
