@@ -30,7 +30,7 @@ margin-left: 0.4em;
 animation: ${spinAnimation} 10s linear infinite;
 `
 const Text = styled.div`
-  margin: 2.3em 0 0 0.5em;
+  margin: 1.5em 0 0 0.5em;
   font-family: 'Lato', sans-serif;
   font-weight: bold;
 `
