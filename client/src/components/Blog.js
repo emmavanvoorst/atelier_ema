@@ -1,5 +1,7 @@
-import { styled, keyframes } from "styled-components";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { styled, keyframes } from "styled-components";
+
 import logo from "../imgs/logo_yellow.png";
 
 const Wrapper = styled.div`
@@ -55,16 +57,15 @@ const BlogPosts = styled.div`
   border-radius: 1em;
   margin-top: 1em;
   flex-wrap: wrap;
-  min-height: 100vh;
+  min-height: 100%;
 `;
 const OneBlog = styled.div`
   display: flex;
-
+flex-direction: column;
   width: 40em;
   margin: 4em 0 4em 4em;
 `;
 const Image = styled.img`
-  height: 30em;
 `;
 const Subtitle = styled.div`
   color: #e7e996;
@@ -76,7 +77,10 @@ const Text = styled.div`
   color: #e7e996;
   font-family: "Lato", sans-serif;
 `;
-
+const BLink = styled(Link)`
+all:unset;
+cursor: pointer;
+`
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
   console.log({ blogs });
@@ -116,10 +120,11 @@ const Blog = () => {
           {blogs.length > 0 ? (
             blogs.map((blog, index) => (
               <div key={index}>
-                <OneBlog>
-                  <Image src={`data:image/png;base64, ${blog.image}`} />
+                <BLink to={`/blog/${blog._id}`}><OneBlog>
+                  <Image src={blog.image} />
                   <Subtitle>{blog.title}</Subtitle>
-                </OneBlog>
+                  <Text>{blog.text}</Text>
+                </OneBlog></BLink>
               </div>
             ))
           ) : (

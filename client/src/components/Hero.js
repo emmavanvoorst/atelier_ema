@@ -1,7 +1,7 @@
 import React from "react";
 import {styled, keyframes} from 'styled-components';
-import pink from "../imgs/pink_balaclava.jpg";
-import logo from '../imgs/Logo.png'
+import bags from "../imgs/bags.png";
+import logo from '../imgs/Logo.png';
 
 const Container = styled.div`
 display: flex;
@@ -38,7 +38,7 @@ const Text = styled.div`
 const Hero = () => {
     return(
     <Container>
-      <Image src={pink}/>
+      <Image src={bags}/>
       <Flex>
       
     <Text>ATELIER <br/>EMA<Logo src={logo}/></Text>

@@ -9,6 +9,7 @@ import LogIn from './components/LogIn';
 import Footer from './components/Footer';
 import NavBar from './components/NavBar';
 import BlogNavBar from './components/BlogNavBar';
+import OneBlogPost from './components/OneBlogPost';
 
 
 
@@ -31,12 +32,14 @@ function App() {
         <Route path="/about" element={<RenderNavBar />} />
         <Route path="/blog" element={<RenderNavBar />} />
         <Route path="/login" element={<RenderNavBar />} />
+        <Route path="/blog/:blogId" element={<RenderNavBar />}/>
       </Routes>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/login" element={<LogIn />} />
+        <Route path="/blog/:blogId" element={<OneBlogPost/>}/>
       </Routes>
       <Footer />
     </Router>

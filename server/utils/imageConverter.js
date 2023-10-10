@@ -4,7 +4,7 @@ const { MongoClient, ObjectId } = require("mongodb");
 const { MONGO_URI } = process.env;
 
 const DB_NAME = "atelierema";
-const imagePaths = ["./imgs/blog-img.jpg", "./imgs/blog-img2.jpg"];
+const imagePaths = ["./imgs/bags.png"];
 
 const options = {
   useNewUrlParser: true,
@@ -26,12 +26,12 @@ const updateObjectsWithImages = async () => {
       const imagePath = imagePaths[image];
       const imageBase64 = fs.readFileSync(imagePath, "base64");
 
-      const objectIdToUpdate = new ObjectId('650090b75d755bb33616a275');
+      const objectIdToUpdate = new ObjectId('650090b75d755bb33616a277');
       const updateResult = await collection.updateOne(
         { _id: objectIdToUpdate },
         {
           $set: {
-            image: imageBase64
+            image: 'data:image/png;base64,' + imageBase64
           },
         }
       );
