@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { styled, keyframes } from "styled-components";
+import { useContainerQuery } from 'react-container-query';
 
 import logo from "../imgs/logo_yellow.png";
 
@@ -23,7 +24,10 @@ const TitleContainer = styled.div`
   background-color: #55b0f1;
   margin-bottom: 1em;
   border-radius: 0.5em;
-  height: 15em;
+  height: 15em; 
+  @media screen and (max-width:1000px){
+    height: 8em;    
+  }  
 `;
 const spinAnimation = keyframes`
   100% {
@@ -35,14 +39,18 @@ const Logo = styled.img`
   height: 12em;
   margin-left: 1em;
   animation: ${spinAnimation} 10s linear infinite;
+  @media screen and (max-width: 1000px){
+    width: 5em;
+  height: 5em;
+  }
 `;
 
 const Title = styled.div`
   color: #e7e996;
   font-family: "Lato", sans-serif;
-  font-size: 16rem;
+  font-size: min(max(13vw, 50px), 80vw); 
   font-weight: bold;
-  padding-left: 0.1em;
+  padding-left: 0.05em;
 `;
 const Blue = styled.div`
   height: 2em;
@@ -61,11 +69,17 @@ const BlogPosts = styled.div`
 `;
 const OneBlog = styled.div`
   display: flex;
-flex-direction: column;
+  flex-direction: column;
   width: 40em;
   margin: 4em 0 4em 4em;
 `;
 const Image = styled.img`
+width: 30em;
+height: auto;
+ @media screen and (max-width:1000px){
+    height: auto;
+    width: 20em;
+  }
 `;
 const Subtitle = styled.div`
   color: #e7e996;
@@ -123,7 +137,8 @@ const Blog = () => {
                 <BLink to={`/blog/${blog._id}`}><OneBlog>
                   <Image src={blog.image} />
                   <Subtitle>{blog.title}</Subtitle>
-                  <Text>{blog.text}</Text>
+                  
+                  {/* <Text>{blog.text}</Text> */}
                 </OneBlog></BLink>
               </div>
             ))

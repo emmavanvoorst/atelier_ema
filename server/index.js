@@ -4,6 +4,7 @@ const express = require("express");
 const morgan = require("morgan");
 
 const {getBlogPosts} = require("./handlers/getBlogPosts");
+const {getOneBlog} = require("./handlers/getOneBlog")
 
 const PORT = process.env.PORT || 4000;
 
@@ -29,7 +30,8 @@ express()
 
   //get all blog posts
   .get("/api/get-blogposts", getBlogPosts)
-
+  //get one blog post\
+  .get("/api/blog/:blogId", getOneBlog)
 
 .listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);

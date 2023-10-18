@@ -26,15 +26,45 @@ margin-right: 1em;
 `
 
 const OneBlogPost = () => {
+  // const [blogs, setBlogs] = useState([]);
+  // console.log({ blogs });
+
+  // useEffect(() => {
+  //   fetch("/api/get-blogposts", {
+  //     method: "GET",
+  //     headers: {
+  //       "Cache-Control": "no-cache",
+  //     },
+  //   })
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error("Network response was not ok");
+  //       }
+  //       return response.json(); // Parse the response as JSON
+  //     })
+  //     .then((blogPosts) => {
+  //       setBlogs(blogPosts.blogs);
+  //       console.log(blogPosts);
+  //     })
+  //     .catch((error) => {
+  //       // Handle any errors that occurred during the fetch
+  //       console.error("Fetch error:", error);
+  //     });
+  // }, []);
+
 return(
+<>
 <Container> 
 <Image src={test}/>
 <Image src={test_}/>
 <Image src={test_two}/>
 <Image src={test_three}/>
 <Image src={test_four}/>
-</Container> 
-   
+</Container>
+<p>
+  
+  </p> 
+   </>
 )
 }
 
