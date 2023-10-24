@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { styled, keyframes } from "styled-components";
-import { useContainerQuery } from 'react-container-query';
 
 import logo from "../imgs/logo_yellow.png";
 

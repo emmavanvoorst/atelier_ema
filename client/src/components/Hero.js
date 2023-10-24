@@ -1,15 +1,17 @@
 import React from "react";
 import {styled, keyframes} from 'styled-components';
 import bags from "../imgs/bags.png";
-import logo from '../imgs/Logo.png';
+import logo from '../imgs/logo_yellow.png';
 
 const Container = styled.div`
 display: flex;
-position: relative;
 text-align: left;
-color: #FCFF56;
+color: #e7e996;
 font-style: bold;
 font-size: 12rem;
+@media screen and (max-width:1500px){
+  font-size: 8rem;
+}
 `
 const Flex = styled.div`
 display: flex;
@@ -17,6 +19,9 @@ flex-direction: column;
 `
 const Image = styled.img`
 height: 100vh;
+@media screen and (max-width:1500px){
+  height: 80vh;
+}
 `
 const spinAnimation = keyframes`
   100% {

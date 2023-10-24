@@ -32,14 +32,14 @@ const Home = () => {
     <Container>
  
       <Hero />
-      <Text>
+      {/* <Text>
         WELCOME TO <br />
         MY ATELIER
-      </Text>
-      <Carousel />
+      </Text> */}
+      {/* <Carousel />
       <Flex>
         <FooterImg src={footer} />
-      </Flex>
+      </Flex> */}
     </Container>
   );
 };
