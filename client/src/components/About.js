@@ -1,23 +1,34 @@
 import { styled } from "styled-components";
-import logo from "../imgs/logo_yellow.png";
 
 const Container = styled.div`
-  width: 100vw;
   height: 100vh;
   background-color: #cc6063;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-self: center;
+  align-items: center;
 `;
-const Logo = styled.img`
-  max-height: 30em;
-  margin-top: 10em;
+const Text = styled.div`
+  width: 70vw;
+  color: #e7e996;
+  font-size: 2rem;
 `;
+
 const About = () => {
   return (
     <Container>
-
-      <Logo src={logo} />
+      <Text>
+        <p>
+          Welcome to Atelier Ema, a haven of creativity, where our muse is bold
+          colors, whimsical patterns and shape.{" "}
+        </p>
+        <p>
+          {" "}
+          Atelier Ema is a space for those who find joy in embracing the
+          unconventional, turning fashion into a canvas for self-discovery and
+          unabashed self-expression.
+        </p>
+      </Text>
     </Container>
   );
 };

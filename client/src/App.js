@@ -16,7 +16,7 @@ import OneBlogPost from './components/OneBlogPost';
 function RenderNavBar() {
   const location = useLocation();
 
-  if (location.pathname === '/blog') {
+  if (location.pathname.startsWith('/blog')) {
     return <BlogNavBar />;
   } else {
     return <NavBar />;

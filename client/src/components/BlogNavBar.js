@@ -2,13 +2,13 @@ import { styled } from "styled-components";
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
+ width: calc(100vw - 2.7em);
   display: flex;
   justify-content: space-between;
   position: fixed;
   height: 3.5em;
-  width: 100%;
   top: 0.5em;
-  margin-bottom: 1em;
+  margin-left: 1em;
   padding-right: 4em;
   background-color: #55b0f1;
   border-radius: 1em;

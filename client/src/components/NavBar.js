@@ -32,7 +32,7 @@ display: flex;
 justify-content: space-between;
 `
 const NavText = styled.div`
-color: #FCFF56;
+color: #e7e996;
 text-align: center;
 font-size: 2rem;
 font-weight: bold;

@@ -1,31 +1,51 @@
-import {styled, keyframes} from 'styled-components';
+import { styled } from "styled-components";
+import { useState } from "react";
 
-import test from "../imgs/test.jpg";
-import test_ from "../imgs/test1.jpg";
-import test_two from "../imgs/test2.jpg";
-import test_three from "../imgs/test3.jpg";
-import test_four from "../imgs/test4.jpg";
+import OneBlogPostImages from "./OneBlogPostImages";
 
-const scrollAnimation = keyframes`
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-`;
+import { PiArrowSquareRightBold } from 'react-icons/pi';
+
+
 const Container = styled.div`
+  height: 100vh;
+  background-color: #55b0f1;
+`;
+const TitleFlex = styled.div`
+padding-top: 6em;
 display: flex;
-flex-direction: row;
-animation: ${scrollAnimation} 90s linear infinite;
-overflow-x: auto;
+align-items: center;
 `
+const Title = styled.div`
+padding-left : 0.1em;
+  font-size: 10rem;
+  color: #e7e996;
+  font-weight: bold;
+  font-family: "Lato", sans-serif;
+  
+`;
 const Image = styled.img`
-max-height: 90vh;
-margin-right: 1em;
+  height: 40em;
+  width: auto;
+  border: solid 1em #e7e996;
+  border-radius: 20%;
+`;
+const Paragraph = styled.div`
+  width: 80vw;
+  margin: 0.4em 1em 1em 1em;
+  font-size: 2rem;
+  color: #e7e996;
+  font-weight: bold;
+  font-family: "Lato", sans-serif;
+`;
+const ArrowIcon = styled(PiArrowSquareRightBold)`
+cursor: pointer;
+transition: 200ms;
+&:hover{
+  margin-left: 1em;
+}
 `
-
 const OneBlogPost = () => {
+  const [active, setActive] = useState(false);
   // const [blogs, setBlogs] = useState([]);
   // console.log({ blogs });
 
@@ -52,20 +72,41 @@ const OneBlogPost = () => {
   //     });
   // }, []);
 
-return(
-<>
-<Container> 
-<Image src={test}/>
-<Image src={test_}/>
-<Image src={test_two}/>
-<Image src={test_three}/>
-<Image src={test_four}/>
-</Container>
-<p>
-  
-  </p> 
-   </>
-)
+const handleClick = () => {
+  setActive(true)
 }
+
+  return (
+    <>
+    {active === false ?(
+      <Container>
+        <TitleFlex>
+          <div>
+          <Title>
+            BAKLAVA
+            <br /> BALACLAVA
+          </Title>
+        
+
+        <Paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </Paragraph></div>
+        <ArrowIcon size={100} color="#e7e996" onClick={handleClick}/>
+        </TitleFlex>
+        
+      </Container>
+      ) :(
+        <OneBlogPostImages />
+      )
+      }
+    </>
+  );
+};
 
 export default OneBlogPost;
