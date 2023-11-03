@@ -6,7 +6,7 @@ React app
 
 This website is a blog where I will be uploading the clothing, accessories and paintings I make.
 
-![Screenshot of Calend'art home page.](./server/assets/calend-art.PNG)
+![Screenshot of Atelier Ema home page.](./server/assets/atelierema.PNG)
 
 ## API endpoints
 
